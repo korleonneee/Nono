@@ -11,7 +11,8 @@ jobs:
           ndk-version: r21e
       - name: Build with ndk-build
         run: ndk-build -C app/src/main/jni
-      - name: Upload APK
+      - name: Upload Library
         uses: actions/upload-artifact@v4
         with:
-          name: ModMenu_APK
+          name: ModMenu_Library
+          path: app/src/main/libs/  # Ajusta esta ruta según donde veas en los logs que se guardó
