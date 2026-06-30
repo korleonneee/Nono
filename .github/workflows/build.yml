@@ -9,10 +9,15 @@ jobs:
         uses: nttld/setup-ndk@v1
         with:
           ndk-version: r21e
-      - name: Build with ndk-build
-        run: ndk-build -C app/src/main/jni
-      - name: Upload Library
+      - name: Build APK
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleDebug
+          
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: ModMenu_Library
-          path: app/src/main/libs/  # Ajusta esta ruta según donde veas en los logs que se guardó
+          name: ModMenu_APK
+          # Los APKs compilados por Gradle suelen estar aquí:
+          path: app/build/outputs/apk/debug/ 
+
