@@ -30,13 +30,13 @@ android {
             path file('src/main/jni/Android.mk')
         }
     }
-   packagingOptions {
+    packagingOptions {
         pickFirst 'lib/arm64-v8a/libModMenu.so'
         pickFirst 'lib/armeabi-v7a/libModMenu.so'
         pickFirst 'lib/x86/libModMenu.so'
     }
-  }
 }
+
 
 //dependencies must be placed below 'android' brackets to get it work on AIDE
 dependencies {
