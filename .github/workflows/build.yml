@@ -1,0 +1,19 @@
+name: Build Android Mod
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Android NDK
+        uses: nttld/setup-ndk@v1
+        with:
+          ndk-version: r21e
+      - name: Build with ndk-build
+        run: ndk-build
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: ModMenu_APK
+          path: bin/ # O la ruta donde tu proyecto genera el APK
+
